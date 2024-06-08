@@ -1,0 +1,269 @@
+{
+  "brands": [
+    {
+      "name": "Samsung",
+      "products": [
+        {
+          "name": "The Samsung Galaxy S21 Ultra",
+          "description": "The Samsung Galaxy S21 Ultra features a 108MP camera, 6.8-inch Dynamic AMOLED display, and 5G connectivity.",
+          "rating": 4,
+          "category": "Electronics",
+          "price": 1199.99,
+          "image": "https://example.com/images/samsung-galaxy-s21-ultra.jpg"
+        },
+        {
+          "name": "Samsung QLED 4K Smart TV",
+          "description": "The Samsung QLED 4K Smart TV offers stunning picture quality with Quantum Dot technology and smart features like built-in Alexa and Google Assistant.",
+          "rating": 4,
+          "category": "Electronics",
+          "price": 999.99,
+          "image": "https://example.com/images/samsung-qled-4k-tv.jpg"
+        },
+        {
+          "name": "Samsung Galaxy Watch 4",
+          "description": "The Samsung Galaxy Watch 4 is a stylish smartwatch that tracks fitness, monitors health metrics, and offers seamless connectivity with Samsung devices.",
+          "rating": 3,
+          "category": "Clothing",
+          "price": 249.99,
+          "image": "https://example.com/images/samsung-galaxy-watch-4.jpg"
+        },
+        {
+          "name": "Samsung Galaxy Buds Pro",
+          "description": "The Samsung Galaxy Buds Pro are high-quality wireless earbuds with active noise cancellation, excellent sound quality, and long battery life.",
+          "rating": 4,
+          "category": "Clothing",
+          "price": 199.99,
+          "image": "https://example.com/images/samsung-galaxy-buds-pro.jpg"
+        },
+        {
+          "name": "Samsung Family Hub Refrigerator",
+          "description": "The Samsung Family Hub Refrigerator features a large touchscreen, smart connectivity, and ample storage space to keep your food fresh and organized.",
+          "rating": 5,
+          "category": "Home",
+          "price": 2999.99,
+          "image": "https://example.com/images/samsung-family-hub-refrigerator.jpg"
+        },
+        {
+          "name": "Samsung Jet 90 Complete Cordless Stick Vacuum",
+          "description": "The Samsung Jet 90 Complete Cordless Stick Vacuum offers powerful suction, a lightweight design, and a long-lasting battery for efficient home cleaning.",
+          "rating": 4,
+          "category": "Home",
+          "price": 599.99,
+          "image": "https://example.com/images/samsung-jet-90-vacuum.jpg"
+        }
+      ]
+    },
+    {
+      "name": "Sony",
+      "products": [
+        {
+          "name": "Sony Bravia XR A80J OLED TV",
+          "description": "The Sony Bravia XR A80J OLED TV features stunning picture quality, immersive sound, and smart capabilities with Google TV integration.",
+          "rating": 5,
+          "category": "Electronics",
+          "price": 1799.99,
+          "image": "https://example.com/images/sony-bravia-xr-a80j-oled-tv.jpg"
+        },
+        {
+          "name": "Sony WH-1000XM4 Wireless Headphones",
+          "description": "The Sony WH-1000XM4 Wireless Headphones offer industry-leading noise cancellation, superior sound quality, and all-day comfort.",
+          "rating": 5,
+          "category": "Electronics",
+          "price": 349.99,
+          "image": "https://example.com/images/sony-wh-1000xm4-headphones.jpg"
+        },
+        {
+          "name": "Sony SmartWear SWR10",
+          "description": "The Sony SmartWear SWR10 is a wearable activity tracker that monitors your daily activities, sleep patterns, and provides notifications.",
+          "rating": 3,
+          "category": "Clothing",
+          "price": 99.99,
+          "image": "https://example.com/images/sony-smartwear-swr10.jpg"
+        },
+        {
+          "name": "Sony WF-SP800N True Wireless Earbuds",
+          "description": "The Sony WF-SP800N True Wireless Earbuds offer active noise cancellation, water resistance, and secure fit for an active lifestyle.",
+          "rating": 4,
+          "category": "Clothing",
+          "price": 199.99,
+          "image": "https://example.com/images/sony-wf-sp800n-earbuds.jpg"
+        },
+        {
+          "name": "Sony SRS-XP700 Portable Bluetooth Speaker",
+          "description": "The Sony SRS-XP700 Portable Bluetooth Speaker delivers powerful sound, long battery life, and LED lighting effects for parties.",
+          "rating": 4,
+          "category": "Home",
+          "price": 449.99,
+          "image": "https://example.com/images/sony-srs-xp700-speaker.jpg"
+        },
+        {
+          "name": "Sony HT-G700 Soundbar",
+          "description": "The Sony HT-G700 Soundbar offers immersive 3.1 channel surround sound with Dolby Atmos and DTS:X support, perfect for home theaters.",
+          "rating": 5,
+          "category": "Home",
+          "price": 499.99,
+          "image": "https://example.com/images/sony-ht-g700-soundbar.jpg"
+        }
+      ]
+    },
+    {
+      "name": "Apple",
+      "products": [
+        {
+          "name": "Apple iPhone 13 Pro Max",
+          "description": "The Apple iPhone 13 Pro Max features a 6.7-inch Super Retina XDR display, A15 Bionic chip, and 5G connectivity.",
+          "rating": 5,
+          "category": "Electronics",
+          "price": 1099.99,
+          "image": "https://example.com/images/apple-iphone-13-pro-max.jpg"
+        },
+        {
+          "name": "Apple MacBook Pro 14-inch",
+          "description": "The Apple MacBook Pro 14-inch offers a stunning Liquid Retina XDR display, M1 Pro chip, and up to 17 hours of battery life.",
+          "rating": 5,
+          "category": "Electronics",
+          "price": 1999.99,
+          "image": "https://example.com/images/apple-macbook-pro-14.jpg"
+        },
+        {
+          "name": "Apple Watch Series 7",
+          "description": "The Apple Watch Series 7 features a larger, always-on Retina display, advanced health metrics, and enhanced durability.",
+          "rating": 3,
+          "category": "Clothing",
+          "price": 399.99,
+          "image": "https://example.com/images/apple-watch-series-7.jpg"
+        },
+        {
+          "name": "Apple AirPods Pro",
+          "description": "The Apple AirPods Pro offer active noise cancellation, superior sound quality, and a customizable fit for all-day comfort.",
+          "rating": 4,
+          "category": "Clothing",
+          "price": 249.99,
+          "image": "https://example.com/images/apple-airpods-pro.jpg"
+        },
+        {
+          "name": "Apple HomePod Mini",
+          "description": "The Apple HomePod Mini delivers room-filling sound, smart home capabilities, and seamless integration with Apple devices.",
+          "rating": 3,
+          "category": "Home",
+          "price": 99.99,
+          "image": "https://example.com/images/apple-homepod-mini.jpg"
+        },
+        {
+          "name": "Apple TV 4K",
+          "description": "The Apple TV 4K provides stunning picture quality, Dolby Atmos sound, and access to a wide range of streaming services.",
+          "rating": 2,
+          "category": "Home",
+          "price": 179.99,
+          "image": "https://example.com/images/apple-tv-4k.jpg"
+        }
+      ]
+    },
+    {
+      "name": "IKEA",
+      "products": [
+        {
+          "name": "IKEA Ektorp Sofa",
+          "description": "The IKEA Ektorp Sofa is a comfortable and durable sofa with washable covers, perfect for the living room.",
+          "rating": 4,
+          "category": "Home",
+          "price": 499.99,
+          "image": "https://example.com/images/ikea-ektorp-sofa.jpg"
+        },
+        {
+          "name": "IKEA Hemnes Dresser",
+          "description": "The IKEA Hemnes Dresser features spacious drawers and a classic design, ideal for bedroom storage.",
+          "rating": 4,
+          "category": "Home",
+          "price": 249.99,
+          "image": "https://example.com/images/ikea-hemnes-dresser.jpg"
+        },
+        {
+          "name": "IKEA Symfonisk WiFi Speaker",
+          "description": "The IKEA Symfonisk WiFi Speaker combines high-quality sound with a functional lamp design, perfect for any room.",
+          "rating": 4,
+          "category": "Electronics",
+          "price": 179.99,
+          "image": "https://example.com/images/ikea-symfonisk-speaker.jpg"
+        },
+        {
+          "name": "IKEA Skadis Pegboard",
+          "description": "The IKEA Skadis Pegboard helps you organize your workspace with customizable storage options for tools and accessories.",
+          "rating": 4,
+          "category": "Home",
+          "price": 19.99,
+          "image": "https://example.com/images/ikea-skadis-pegboard.jpg"
+        },
+        {
+          "name": "IKEA Puderviva Linen Duvet Cover Set",
+          "description": "The IKEA Puderviva Linen Duvet Cover Set offers a soft and breathable linen fabric for a comfortable night's sleep.",
+          "rating": 4,
+          "category": "Clothing",
+          "price": 79.99,
+          "image": "https://example.com/images/ikea-puderviva-duvet.jpg"
+        },
+        {
+          "name": "IKEA Kallax Shelving Unit",
+          "description": "The IKEA Kallax Shelving Unit is versatile and practical for storing books, toys, and decorative items in any room.",
+          "rating": 4,
+          "category": "Home",
+          "price": 69.99,
+          "image": "https://example.com/images/ikea-kallax-shelving.jpg"
+        }
+      ]
+    },
+    {
+      "name": "Target",
+      "products": [
+        {
+          "name": "Target Threshold 5-Tier Bookshelf",
+          "description": "The Target Threshold 5-Tier Bookshelf offers ample storage space and a stylish design for organizing books and decor.",
+          "rating": 4,
+          "category": "Home",
+          "price": 99.99,
+          "image": "https://example.com/images/target-threshold-bookshelf.jpg"
+        },
+        {
+          "name": "Target Project 62 Accent Chair",
+          "description": "The Target Project 62 Accent Chair features a modern design with comfortable upholstery, perfect for any living space.",
+          "rating": 4,
+          "category": "Home",
+          "price": 199.99,
+          "image": "https://example.com/images/target-project-62-chair.jpg"
+        },
+        {
+          "name": "Target Apple Watch Series 7",
+          "description": "The Target Apple Watch Series 7 features a larger, always-on Retina display, advanced health metrics, and enhanced durability.",
+          "rating": 5,
+          "category": "Electronics",
+          "price": 399.99,
+          "image": "https://example.com/images/target-apple-watch-series-7.jpg"
+        },
+        {
+          "name": "Target Sony PlayStation 5",
+          "description": "The Target Sony PlayStation 5 delivers immersive gaming experiences with high-speed SSD storage, ray tracing, and 4K gaming support.",
+          "rating": 5,
+          "category": "Electronics",
+          "price": 499.99,
+          "image": "https://example.com/images/target-sony-ps5.jpg"
+        },
+        {
+          "name": "Target A New Day Women's Blouse",
+          "description": "The Target A New Day Women's Blouse offers a stylish design with comfortable fabric, perfect for everyday wear.",
+          "rating": 4,
+          "category": "Clothing",
+          "price": 24.99,
+          "image": "https://example.com/images/target-womens-blouse.jpg"
+        },
+        {
+          "name": "Target Goodfellow & Co Men's Jeans",
+          "description": "The Target Goodfellow & Co Men's Jeans feature a classic fit with durable denim fabric, ideal for casual and dressy occasions.",
+          "rating": 4,
+          "category": "Clothing",
+          "price": 29.99,
+          "image": "https://example.com/images/target-mens-jeans.jpg"
+        }
+      ]
+    }
+  ]
+}
