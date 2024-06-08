@@ -9,15 +9,6 @@ const jwtValidation = require("../middlewares/AuthMiddleware.js");
 
 const userRouter = Router();
 
-// userRouter.get("/songs", jwtValidation, userController.getSongs);
-
-userRouter.put(
-  "/info",
-  updateUserValidation,
-  jwtValidation,
-  userController.updateUser
-);
-
 // POST /user/signup : user signs up with username, email, and password
 // Body: { username, email, password }
 userRouter.post("/signup", createUserValidation, userController.signup);
@@ -29,5 +20,13 @@ userRouter.post("/login", loginUserValidation, userController.login);
 // POST /user/logout : user logs out w/ email
 // { Auth: Token }
 // userRouter.post("/logout", userController.logout);
+
+userRouter.get("/favorite", jwtValidation, userController.getFavorites);
+
+userRouter.put(
+  "/favorite/:productid",
+  jwtValidation,
+  userController.setFavorites
+);
 
 module.exports = userRouter;

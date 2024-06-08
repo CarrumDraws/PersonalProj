@@ -4,6 +4,7 @@ const generateToken = require("../utils/generateToken.js");
 const bcrypt = require("bcryptjs");
 
 const User = require("../models/User.js");
+const Product = require("../models/Product.js");
 
 const signup = async (req, res) => {
   try {
@@ -69,43 +70,35 @@ const login = async (req, res) => {
     res.status(500).json({ message: "Internal server error" });
   }
 };
-const getFavorites = async (req, res) => {
+
+const logout = async (req, res) => {
   try {
-    const { id } = req.body;
+    const { email, username, password } = req.body;
 
-    const user = await User.findById(id).populate({
-      path: "likes", // the field in User you want to populate
-      select: "-_id -__v", // Exclude '__v' and '-todos' from return
-    });
+    let user;
+    // check if email exists
+    if (email) {
+      console.log("Hello");
+      user = await User.findOne({ email }).lean().exec();
+      if (!user) {
+        return res.status(401).json({ message: "Invalid Email" });
+      }
+    } else {
+      user = await User.findOne({ username }).lean().exec();
+      if (!user) {
+        return res.status(401).json({ message: "Invalid Username" });
+      }
+    }
+    console.log(user);
 
-    if (!user) {
-      return res.status(404).json({ message: "User not found" });
+    // check if Password is correct
+    const isPasswordCorrect = await bcrypt.compare(password, user.password);
+    if (!isPasswordCorrect) {
+      return res.status(401).json({ message: "Invalid Password" });
     }
 
-    res.status(200).json(user.likes);
-  } catch (error) {
-    res.status(500).json(error);
-  }
-};
-
-const updateUser = async (req, res) => {
-  try {
-    const { id, email, username, password } = req.body;
-    console.log(id + " " + email + " " + username + " " + password);
-
-    const existingUser = await User.findOne({ email: email });
-
-    if (existingUser && existingUser._id != id)
-      return res.status(400).json({ message: "Email Already Taken" });
-
-    req.body.password = await bcrypt.hash(password, Number(process.env.SALT));
-
-    const user = await User.findByIdAndUpdate(id, req.body, {
-      new: true,
-    });
-
     // Stores ID, email, username
-    const token = generateToken(id, email, username);
+    const token = generateToken(user._id, user.email, user.username);
 
     // Generate + Return { jwt: {data}, user: {data} }
     res.status(200).json({ token: token, user: user });
@@ -114,4 +107,50 @@ const updateUser = async (req, res) => {
     res.status(500).json({ message: "Internal server error" });
   }
 };
-module.exports = { getFavorites, updateUser, signup, login };
+
+const getFavorites = async (req, res) => {
+  try {
+    const { id, email, username, password } = req.body;
+
+    const user = await User.findById(id).populate({
+      path: "favorites", // the field in User you want to populate
+      select: "-_id -__v", // Exclude '__v' and '-todos' from return
+    });
+
+    if (!user) return res.status(404).json({ message: "User not found" });
+
+    res.status(200).json(user.favorites);
+  } catch (error) {
+    res.status(500).json(error);
+  }
+};
+
+const setFavorites = async (req, res) => {
+  try {
+    console.log("Setting Favorite");
+    const { id, email, username, password } = req.body;
+    const { productid } = req.params;
+
+    const user = await User.findById(id);
+    if (!user) return res.status(404).json({ message: "User not found" });
+    const product = await Product.findById(productid);
+    if (!product) return res.status(404).json({ message: "Product not found" });
+
+    // Use .findIndex to find the index in user.favorites that matches productid
+    const index = user.favorites.findIndex(
+      // Cast fav._id's ObjectId type -> String
+      (fav) => fav._id.toString() === productid
+    );
+
+    if (index === -1) user.favorites.push(product); // Add Product
+    else user.favorites.splice(index, 1); // Remove Product
+
+    await user.save();
+
+    res.status(200).json(product);
+  } catch (error) {
+    res.status(500).json(error);
+  }
+};
+
+module.exports = { signup, login, logout, getFavorites, setFavorites };
