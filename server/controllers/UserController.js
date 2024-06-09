@@ -12,17 +12,19 @@ const signup = async (req, res) => {
     const existingUser = await User.findOne({
       $or: [{ email: req.body.email }, { username: req.body.username }],
     });
-    if (existingUser)
+    if (existingUser) {
+      console.log("User already exists");
       return res.status(400).json({ message: "User Already Exists" });
+    }
 
     req.body.password = await bcrypt.hash(
       req.body.password,
       Number(process.env.SALT)
     );
-
+    console.log("A");
     const user = new User(req.body);
     await user.save();
-
+    console.log("B");
     // Stores ID, email, username
     const token = generateToken(user._id, req.body.email, req.body.username);
 

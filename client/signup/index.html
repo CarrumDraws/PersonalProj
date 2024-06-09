@@ -4,10 +4,31 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <link rel="stylesheet" href="styles.css" />
-    <title>Home</title>
+    <title>Signup</title>
   </head>
   <body>
-    Login
+    <div id="navbar-placeholder"></div>
+
+    <form id="signupForm">
+      <div id="usernameField">
+        <label for="username">Username:</label>
+        <input type="text" id="username" name="username" />
+      </div>
+      <div id="emailField" class="hidden">
+        <label for="email">Email:</label>
+        <input type="email" id="email" name="email" />
+      </div>
+      <div>
+        <label for="password">Password:</label>
+        <input type="password" id="password" name="password" />
+      </div>
+      <div>
+        <label for="passwordCheck">Confirm Password:</label>
+        <input type="password" id="passwordCheck" name="passwordCheck" />
+      </div>
+      <div id="error-message" style="color: red"></div>
+      <button type="submit">Sign Up</button>
+    </form>
   </body>
   <script src="script.js"></script>
 </html>

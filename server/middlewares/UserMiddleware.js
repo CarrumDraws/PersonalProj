@@ -2,6 +2,7 @@ const validator = require("validator");
 
 const createUserValidation = (req, res, next) => {
   const { username, password, email } = req.body;
+
   if (
     !username ||
     !password ||

@@ -6,6 +6,11 @@
     const data = await response.text();
     const navbarPlaceholder = document.getElementById("navbar-placeholder");
     navbarPlaceholder.innerHTML = data;
+
+    // Once navbar is loaded, load navbar script
+    const script = document.createElement("script");
+    script.src = "navbar/script.js";
+    document.body.appendChild(script);
   } catch (err) {
     console.error("Failed to load the navbar:", err);
   }
@@ -70,14 +75,17 @@
 // getData
 (async function getData() {
   try {
+    let token = localStorage.getItem("token");
+    const headers = {
+      "Content-Type": "application/json",
+    };
+    if (token) headers.Authorization = `Bearer ${token}`;
+
     const response = await fetch(
       `http://localhost:3000/products${window.location.search}`,
       {
         method: "GET",
-        headers: {
-          "Content-Type": "application/json",
-          Authorization: `Bearer ${localStorage.getItem("token")}`,
-        },
+        headers: headers,
       }
     );
 
@@ -115,6 +123,11 @@ function displayData(products) {
 // product is an object of brand, category, description, favorited, image, name, price, rating, _id.
 function createTile(product) {
   const tile = document.createElement("div");
+  tile.style.display = "flex";
+  tile.style.flexDirection = "column";
+  tile.style.alignItems = "center";
+  tile.style.textAlign = "center";
+  tile.style.width = "33%";
 
   tile.addEventListener("click", () => {
     console.log(product._id);
@@ -127,23 +140,23 @@ function createTile(product) {
   img.alt = product.name;
   tile.appendChild(img);
 
-  const name = document.createElement("h2");
+  const name = document.createElement("h6");
   name.textContent = product.name;
   tile.appendChild(name);
 
-  const category = document.createElement("p");
+  const category = document.createElement("div");
   category.textContent = product.category;
   tile.appendChild(category);
 
-  const rating = document.createElement("p");
-  rating.textContent = `Rating: ${product.rating}`;
+  const rating = document.createElement("div");
+  rating.textContent = `${product.rating} / 5 Stars`;
   tile.appendChild(rating);
 
-  const price = document.createElement("p");
-  price.textContent = `Price: $${product.price.toFixed(2)}`;
+  const price = document.createElement("div");
+  price.textContent = `$${product.price.toFixed(2)}`;
   tile.appendChild(price);
 
-  const brand = document.createElement("p");
+  const brand = document.createElement("div");
   brand.textContent = `Brand: ${product.brand}`;
   tile.appendChild(brand);
 

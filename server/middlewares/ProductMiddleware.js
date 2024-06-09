@@ -25,7 +25,9 @@ const getid = (req, res, next) => {
   try {
     // Check Token from Header
     const token = req.headers?.authorization?.split(" ")[1];
-    if (token && !validator.isEmpty(token)) {
+    if (token != null && !validator.isEmpty(token)) {
+      console.log(req.headers.authorization);
+      console.log(token);
       // decode token
       const decoded = jwt.verify(token, process.env.ACCESS_TOKEN_SECRET);
 
@@ -35,9 +37,9 @@ const getid = (req, res, next) => {
     }
     next();
   } catch (error) {
-    console.error("getProductsValidation error:", error);
+    console.error("getid error:", error);
     return res.status(401).json({
-      message: "getProductsValidation Failed",
+      message: "getid Failed",
     });
   }
 };
