@@ -25,6 +25,19 @@
     const navbarPlaceholder = document.getElementById("favorites-placeholder");
     navbarPlaceholder.innerHTML = data;
 
+    // Load the CSS for the favorites panel
+    const css = document.createElement("link");
+    css.rel = "stylesheet";
+    css.href = "favorites/styles.css";
+    document.head.appendChild(css);
+
+    // Load the Bootstrap for the favorites panel
+    const bs = document.createElement("link");
+    bs.rel = "stylesheet";
+    bs.href =
+      "https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css";
+    document.head.appendChild(bs);
+
     // Once favorites is loaded, load favorites script
     const script = document.createElement("script");
     script.src = "favorites/script.js";
@@ -34,13 +47,32 @@
   }
 })();
 
-// Configure pagenav
-(async function configureNav() {
+// Configure Form + Pagenav
+(async function configure() {
   try {
+    const params = new URLSearchParams(window.location.search);
+
+    // Check brand checkboxes
+    const brandCheckboxes = document.querySelectorAll(".brandCheckbox");
+    brandCheckboxes.forEach((checkbox) => {
+      if (
+        params.has("brand") &&
+        params.getAll("brand").includes(checkbox.value)
+      )
+        checkbox.checked = true;
+    });
+
+    // Check category checkboxes
+    const categoryCheckboxes = document.querySelectorAll(".typeCheckbox");
+    categoryCheckboxes.forEach((checkbox) => {
+      if (params.has("type") && params.getAll("type").includes(checkbox.value))
+        checkbox.checked = true;
+    });
+
+    // Configure PageNav
     let prevPage = document.getElementById("prevPage");
     let currPage = document.getElementById("currPage");
     let nextPage = document.getElementById("nextPage");
-    const params = new URLSearchParams(window.location.search);
     const pageNum = params.get("page");
     currPage.innerHTML = pageNum ? pageNum : "1";
     prevPage.style.color = !pageNum || pageNum == "1" ? "lightgray" : "black";
@@ -62,10 +94,11 @@
       window.location.href = url.toString();
     });
   } catch (err) {
-    console.error("Failed to configureNav:", err);
+    console.error("Failed to configure:", err);
   }
 })();
 
+// Form Submission
 (function formSubmit() {
   let form = document.getElementsByTagName("form")[0];
 
@@ -148,7 +181,7 @@ function createTile(product) {
   tile.style.width = "33%";
 
   tile.addEventListener("click", () => {
-    console.log(product._id);
+    window.location.href = `products/index.html?productid=${product._id}`;
   });
 
   const img = document.createElement("img");
@@ -164,7 +197,7 @@ function createTile(product) {
   tile.appendChild(name);
 
   const category = document.createElement("div");
-  category.textContent = product.category;
+  category.textContent = product.category + ` | ${product.brand}`;
   tile.appendChild(category);
 
   const rating = document.createElement("div");
@@ -175,9 +208,40 @@ function createTile(product) {
   price.textContent = `$${product.price.toFixed(2)}`;
   tile.appendChild(price);
 
-  const brand = document.createElement("div");
-  brand.textContent = `Brand: ${product.brand}`;
-  tile.appendChild(brand);
+  const favorite = document.createElement("button");
+  favorite.textContent = product.favorited
+    ? "Remove from Favorites"
+    : `Add to Favorites`;
+  tile.appendChild(favorite);
+
+  favorite.addEventListener("click", (e) => {
+    e.stopPropagation();
+    toggleFavorite(product._id);
+  });
 
   return tile;
+}
+
+async function toggleFavorite(productId) {
+  try {
+    let token = localStorage.getItem("token");
+    const headers = {
+      "Content-Type": "application/json",
+    };
+    if (token) headers.Authorization = `Bearer ${token}`;
+
+    const response = await fetch(
+      `http://localhost:3000/user/favorite/${productId}`,
+      {
+        method: "PUT",
+        headers: headers,
+      }
+    );
+
+    if (!response.ok) throw new Error("Failed to toggle favorite");
+
+    window.location.reload(); // Reload page
+  } catch (error) {
+    console.error("Error toggling favorite:", error);
+  }
 }

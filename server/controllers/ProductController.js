@@ -12,16 +12,8 @@ const getProducts = async (req, res) => {
     // Construct the query dynamically! One or more of these fields could be an empty array.
     const query = {};
 
-    // Must Convert brand from string to ObjectID!
-    if (brand && brand.length > 0) {
-      const brandDocs = await Brand.find(
-        { name: { $in: brand } }, // Search the Brand collection for docs where the 'name' field matches any brand in the brand[] array.
-        "_id"
-      ).exec();
-      const brandIds = brandDocs.map((brandDoc) => brandDoc._id); // Convert to array of brandid's
-
-      query.brand = { $in: brandIds }; // ($in operator matches any value in an array of values)
-    }
+    // ($in operator matches any value in an array of values)
+    if (brand && brand.length > 0) query.brand = { $in: brand };
 
     // Add category filter if category is provided
     if (type && type.length > 0) query.category = { $in: type };

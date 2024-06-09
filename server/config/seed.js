@@ -40,7 +40,7 @@ const data = require("./data.json"); // Adjust the path as needed
               rating: productData.rating,
               category: productData.category,
               price: productData.price,
-              brand: brand._id, // Assign the brand's ObjectId
+              brand: brandData.name, // Assign the brand's ObjectId
               image: productData.image,
             });
             return product._id;

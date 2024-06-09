@@ -1,0 +1,29 @@
+.favoritesWrapper {
+  height: 100vh;
+  width: 100%;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-evenly;
+}
+.mainContent {
+  padding: 10px;
+  height: 100%;
+  width: 75%;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-evenly;
+}
+
+#related {
+  width: 100%;
+  display: flex;
+  flex-direction: row;
+}
+
+#related > * {
+  width: 33%;
+}
+
+#favorites-placeholder {
+  width: 25%;
+}

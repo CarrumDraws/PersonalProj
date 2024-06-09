@@ -43,6 +43,9 @@ body {
 #pagenav > * {
   padding: 10px;
 }
+
+/* Favorites Panel */
+
 .favoritesWrapper {
   width: 100%;
   display: flex;
@@ -53,8 +56,4 @@ body {
 }
 #favorites-placeholder {
   width: 25%;
-  background-color: lightgray;
-
-  display: flex;
-  flex-direction: column;
 }

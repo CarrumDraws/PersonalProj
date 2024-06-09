@@ -26,8 +26,6 @@ const getid = (req, res, next) => {
     // Check Token from Header
     const token = req.headers?.authorization?.split(" ")[1];
     if (token != null && !validator.isEmpty(token)) {
-      console.log(req.headers.authorization);
-      console.log(token);
       // decode token
       const decoded = jwt.verify(token, process.env.ACCESS_TOKEN_SECRET);
 

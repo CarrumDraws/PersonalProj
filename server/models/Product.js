@@ -9,7 +9,7 @@ const ProductSchema = new Schema({
   rating: { type: Number, required: true, min: 1, max: 5 },
   category: { type: String, required: true },
   price: { type: Number, required: true, min: 0 },
-  brand: { type: refType, ref: "Brand", required: true },
+  brand: { type: String, required: true },
   image: { type: String, required: true },
 });
 

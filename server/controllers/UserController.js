@@ -21,10 +21,8 @@ const signup = async (req, res) => {
       req.body.password,
       Number(process.env.SALT)
     );
-    console.log("A");
     const user = new User(req.body);
     await user.save();
-    console.log("B");
     // Stores ID, email, username
     const token = generateToken(user._id, req.body.email, req.body.username);
 
@@ -43,7 +41,6 @@ const login = async (req, res) => {
     let user;
     // check if email exists
     if (email) {
-      console.log("Hello");
       user = await User.findOne({ email }).lean().exec();
       if (!user) {
         return res.status(401).json({ message: "Invalid Email" });
@@ -80,7 +77,6 @@ const logout = async (req, res) => {
     let user;
     // check if email exists
     if (email) {
-      console.log("Hello");
       user = await User.findOne({ email }).lean().exec();
       if (!user) {
         return res.status(401).json({ message: "Invalid Email" });
@@ -129,7 +125,6 @@ const getFavorites = async (req, res) => {
 
 const setFavorites = async (req, res) => {
   try {
-    console.log("Setting Favorite");
     const { id, email, username, password } = req.body;
     const { productid } = req.params;
 
