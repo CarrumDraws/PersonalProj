@@ -1,0 +1,13 @@
+.navbar {
+  display: flex;
+  flex-direction: row;
+  width: 100vw;
+}
+
+.navlinks {
+  display: flex;
+  flex-direction: row;
+}
+.navlinks > * {
+  padding-left: 10px;
+}

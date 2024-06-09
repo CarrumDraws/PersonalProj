@@ -2,7 +2,6 @@
   const signupLink = document.getElementById("signup-link");
   const loginLink = document.getElementById("login-link");
   const logoutLink = document.getElementById("logout-link");
-
   if (localStorage.getItem("token")) {
     signupLink.style.display = "none";
     loginLink.style.display = "none";

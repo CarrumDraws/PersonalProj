@@ -7,6 +7,12 @@
     const navbarPlaceholder = document.getElementById("navbar-placeholder");
     navbarPlaceholder.innerHTML = data;
 
+    // Load the CSS for the navbar panel
+    const css = document.createElement("link");
+    css.rel = "stylesheet";
+    css.href = "navbar/styles.css";
+    document.head.appendChild(css);
+
     // Once navbar is loaded, load navbar script
     const script = document.createElement("script");
     script.src = "navbar/script.js";

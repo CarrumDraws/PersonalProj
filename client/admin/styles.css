@@ -17,19 +17,6 @@ body {
   align-items: center;
 }
 
-.filters {
-  display: flex;
-  flex-direction: column;
-}
-
-#pagenav {
-  display: flex;
-  flex-direction: row;
-}
-#pagenav > * {
-  padding: 10px;
-}
-
 /* Favorites Panel */
 
 .favoritesWrapper {
