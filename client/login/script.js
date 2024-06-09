@@ -1,11 +1,14 @@
-fetch("../navbar")
-  .then((response) => response.text())
-  .then((data) => {
-    document.getElementById("navbar-placeholder").innerHTML = data;
-  })
-  .catch((err) => {
-    console.log(err);
-  });
+(async function getNavbar() {
+  try {
+    const response = await fetch("../navbar");
+    if (!response.ok) throw new Error(`HTTP error! status: ${response.status}`);
+    const data = await response.text();
+    const navbarPlaceholder = document.getElementById("navbar-placeholder");
+    navbarPlaceholder.innerHTML = data;
+  } catch (err) {
+    console.error("Failed to load the navbar:", err);
+  }
+})();
 
 document.getElementById("toggleButton").addEventListener("click", function () {
   const usernameField = document.getElementById("usernameField");
@@ -45,6 +48,9 @@ form.addEventListener("submit", async (e) => {
 
     const responseData = await response.json();
     console.log("Success:", responseData);
+    localStorage.setItem("token", responseData.token);
+    localStorage.setItem("user", JSON.stringify(responseData.user));
+    window.location.href = "../index.html";
   } catch (error) {
     console.error("Error:", error);
   }

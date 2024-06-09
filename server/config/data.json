@@ -9,7 +9,7 @@
           "rating": 4,
           "category": "Electronics",
           "price": 1199.99,
-          "image": "https://example.com/images/samsung-galaxy-s21-ultra.jpg"
+          "image": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQE7-fQn_C9xwXWppPAwlPPU-7qUt_-lflrpg&s"
         },
         {
           "name": "Samsung QLED 4K Smart TV",
@@ -17,7 +17,7 @@
           "rating": 4,
           "category": "Electronics",
           "price": 999.99,
-          "image": "https://example.com/images/samsung-qled-4k-tv.jpg"
+          "image": "https://image-us.samsung.com/SamsungUS/home/television-home-theater/tvs/qled-4k-tvs/qn85q80cafxza/QN55Q80CAFXZA_003_L-Perspective_Titan.jpg?$product-details-jpg$"
         },
         {
           "name": "Samsung Galaxy Watch 4",
@@ -25,7 +25,7 @@
           "rating": 3,
           "category": "Clothing",
           "price": 249.99,
-          "image": "https://example.com/images/samsung-galaxy-watch-4.jpg"
+          "image": "https://image-us.samsung.com/SamsungUS/configurator/watch4_bands/W4_46mm_02_BLK_Ridge_BLK-MB-720x720.jpg"
         },
         {
           "name": "Samsung Galaxy Buds Pro",
@@ -33,7 +33,7 @@
           "rating": 4,
           "category": "Clothing",
           "price": 199.99,
-          "image": "https://example.com/images/samsung-galaxy-buds-pro.jpg"
+          "image": "https://m.media-amazon.com/images/I/51c8jaXEp+S.jpg"
         },
         {
           "name": "Samsung Family Hub Refrigerator",
@@ -41,7 +41,7 @@
           "rating": 5,
           "category": "Home",
           "price": 2999.99,
-          "image": "https://example.com/images/samsung-family-hub-refrigerator.jpg"
+          "image": "https://www.cnet.com/a/img/resize/1be4ceb5058ce3c094ddedc21edc48fbdd37f841/hub/2016/07/15/bda3c418-740a-4183-93fc-3b95d5a1cc58/samsung-family-hub-refrigerator-promo.jpg?auto=webp&fit=crop&height=1200&width=1200"
         },
         {
           "name": "Samsung Jet 90 Complete Cordless Stick Vacuum",
@@ -49,7 +49,7 @@
           "rating": 4,
           "category": "Home",
           "price": 599.99,
-          "image": "https://example.com/images/samsung-jet-90-vacuum.jpg"
+          "image": "https://images.costco-static.com/ImageDelivery/imageService?profileId=12026540&itemId=1586751-847&recipeName=680"
         }
       ]
     },
@@ -62,7 +62,7 @@
           "rating": 5,
           "category": "Electronics",
           "price": 1799.99,
-          "image": "https://example.com/images/sony-bravia-xr-a80j-oled-tv.jpg"
+          "image": "https://i5.walmartimages.com/asr/232246dc-18fb-4662-a34f-5ee4f2e755f7.4fe7a028d53eece080cc6ca0ee982815.jpeg?odnHeight=768&odnWidth=768&odnBg=FFFFFF"
         },
         {
           "name": "Sony WH-1000XM4 Wireless Headphones",
@@ -70,7 +70,7 @@
           "rating": 5,
           "category": "Electronics",
           "price": 349.99,
-          "image": "https://example.com/images/sony-wh-1000xm4-headphones.jpg"
+          "image": "https://m.media-amazon.com/images/I/61cm-9ZjI0L.jpg"
         },
         {
           "name": "Sony SmartWear SWR10",
@@ -78,7 +78,7 @@
           "rating": 3,
           "category": "Clothing",
           "price": 99.99,
-          "image": "https://example.com/images/sony-smartwear-swr10.jpg"
+          "image": "https://m.media-amazon.com/images/I/614Y+yox9YL.jpg"
         },
         {
           "name": "Sony WF-SP800N True Wireless Earbuds",
@@ -86,7 +86,7 @@
           "rating": 4,
           "category": "Clothing",
           "price": 199.99,
-          "image": "https://example.com/images/sony-wf-sp800n-earbuds.jpg"
+          "image": "https://m.media-amazon.com/images/I/61JpGE72E1L.jpg"
         },
         {
           "name": "Sony SRS-XP700 Portable Bluetooth Speaker",
@@ -94,7 +94,7 @@
           "rating": 4,
           "category": "Home",
           "price": 449.99,
-          "image": "https://example.com/images/sony-srs-xp700-speaker.jpg"
+          "image": "https://www.lowpricesupply.com/cdn/shop/products/31QpO7M-aJS_1024x1024.jpg?v=1683291657"
         },
         {
           "name": "Sony HT-G700 Soundbar",
@@ -102,7 +102,7 @@
           "rating": 5,
           "category": "Home",
           "price": 499.99,
-          "image": "https://example.com/images/sony-ht-g700-soundbar.jpg"
+          "image": "https://m.media-amazon.com/images/I/51pu0lLt-nL.jpg"
         }
       ]
     },
@@ -115,7 +115,7 @@
           "rating": 5,
           "category": "Electronics",
           "price": 1099.99,
-          "image": "https://example.com/images/apple-iphone-13-pro-max.jpg"
+          "image": "https://media.wired.com/photos/6149204955f7b3aea723343d/1:1/w_1568,h_1568,c_limit/Gear-Review-Apple_iPhone-13-Pro_Colors_09142021.jpg"
         },
         {
           "name": "Apple MacBook Pro 14-inch",
@@ -123,7 +123,7 @@
           "rating": 5,
           "category": "Electronics",
           "price": 1999.99,
-          "image": "https://example.com/images/apple-macbook-pro-14.jpg"
+          "image": "https://store.storeimages.cdn-apple.com/4982/as-images.apple.com/is/mbp14-spacegray-select-202310?wid=904&hei=840&fmt=jpeg&qlt=90&.v=1697230830200"
         },
         {
           "name": "Apple Watch Series 7",
@@ -131,7 +131,7 @@
           "rating": 3,
           "category": "Clothing",
           "price": 399.99,
-          "image": "https://example.com/images/apple-watch-series-7.jpg"
+          "image": "https://m.media-amazon.com/images/I/71fOU4IIa9L.jpg"
         },
         {
           "name": "Apple AirPods Pro",
@@ -139,7 +139,7 @@
           "rating": 4,
           "category": "Clothing",
           "price": 249.99,
-          "image": "https://example.com/images/apple-airpods-pro.jpg"
+          "image": "https://m.media-amazon.com/images/I/71zny7BTRlL._AC_UF894,1000_QL80_.jpg"
         },
         {
           "name": "Apple HomePod Mini",
@@ -147,7 +147,7 @@
           "rating": 3,
           "category": "Home",
           "price": 99.99,
-          "image": "https://example.com/images/apple-homepod-mini.jpg"
+          "image": "https://store.storeimages.cdn-apple.com/4982/as-images.apple.com/is/homepod-mini-202110-gallery-1?wid=2824&hei=2400&fmt=jpeg&qlt=90&.v=1632998375000"
         },
         {
           "name": "Apple TV 4K",
@@ -155,7 +155,7 @@
           "rating": 2,
           "category": "Home",
           "price": 179.99,
-          "image": "https://example.com/images/apple-tv-4k.jpg"
+          "image": "https://pisces.bbystatic.com/image2/BestBuy_US/images/products/6500/6500684_sd.jpg"
         }
       ]
     },
@@ -168,7 +168,7 @@
           "rating": 4,
           "category": "Home",
           "price": 499.99,
-          "image": "https://example.com/images/ikea-ektorp-sofa.jpg"
+          "image": "https://www.ikea.com/us/en/images/products/ektorp-sofa-cover-lofallet-beige__0386819_pe559167_s5.jpg?f=s"
         },
         {
           "name": "IKEA Hemnes Dresser",
@@ -176,7 +176,7 @@
           "rating": 4,
           "category": "Home",
           "price": 249.99,
-          "image": "https://example.com/images/ikea-hemnes-dresser.jpg"
+          "image": "https://www.ikea.com/us/en/images/products/hemnes-8-drawer-dresser-white-stain__0627346_pe693299_s5.jpg?f=s"
         },
         {
           "name": "IKEA Symfonisk WiFi Speaker",
@@ -184,7 +184,7 @@
           "rating": 4,
           "category": "Electronics",
           "price": 179.99,
-          "image": "https://example.com/images/ikea-symfonisk-speaker.jpg"
+          "image": "https://www.ikea.com/us/en/images/products/symfonisk-sonos-wi-fi-bookshelf-speakers-white-set-of-2-gen-2__1168832_pe892260_s5.jpg?f=s"
         },
         {
           "name": "IKEA Skadis Pegboard",
@@ -192,7 +192,7 @@
           "rating": 4,
           "category": "Home",
           "price": 19.99,
-          "image": "https://example.com/images/ikea-skadis-pegboard.jpg"
+          "image": "https://www.ikea.com/us/en/images/products/skadis-pegboard-white__1165861_pe890994_s5.jpg"
         },
         {
           "name": "IKEA Puderviva Linen Duvet Cover Set",
@@ -200,7 +200,7 @@
           "rating": 4,
           "category": "Clothing",
           "price": 79.99,
-          "image": "https://example.com/images/ikea-puderviva-duvet.jpg"
+          "image": "https://www.ikea.com/bh/en/images/products/puderviva-quilt-cover-and-2-pillowcases-light-yellow__0718521_pe731571_s5.jpg"
         },
         {
           "name": "IKEA Kallax Shelving Unit",
@@ -208,7 +208,7 @@
           "rating": 4,
           "category": "Home",
           "price": 69.99,
-          "image": "https://example.com/images/ikea-kallax-shelving.jpg"
+          "image": "https://www.ikea.com/us/en/images/products/kallax-shelf-unit-white__1051325_pe845148_s5.jpg"
         }
       ]
     },
@@ -221,7 +221,7 @@
           "rating": 4,
           "category": "Home",
           "price": 99.99,
-          "image": "https://example.com/images/target-threshold-bookshelf.jpg"
+          "image": "https://target.scene7.com/is/image/Target/GUEST_c3e902ad-7687-483a-a885-6a70b1341eb1"
         },
         {
           "name": "Target Project 62 Accent Chair",
@@ -229,7 +229,7 @@
           "rating": 4,
           "category": "Home",
           "price": 199.99,
-          "image": "https://example.com/images/target-project-62-chair.jpg"
+          "image": "https://target.scene7.com/is/image/Target/GUEST_11504b6d-af62-4a34-8c9a-ab679fefc56d?wid=488&hei=488&fmt=pjpeg"
         },
         {
           "name": "Target Apple Watch Series 7",
@@ -237,7 +237,7 @@
           "rating": 5,
           "category": "Electronics",
           "price": 399.99,
-          "image": "https://example.com/images/target-apple-watch-series-7.jpg"
+          "image": "https://target.scene7.com/is/image/Target/GUEST_09b049ee-2f12-4e01-9067-6515fc8a6cf5?wid=488&hei=488&fmt=pjpeg"
         },
         {
           "name": "Target Sony PlayStation 5",
@@ -245,7 +245,7 @@
           "rating": 5,
           "category": "Electronics",
           "price": 499.99,
-          "image": "https://example.com/images/target-sony-ps5.jpg"
+          "image": "https://target.scene7.com/is/image/Target/GUEST_541e533b-2b77-4441-93cf-f19b3de383aa?wid=488&hei=488&fmt=pjpeg"
         },
         {
           "name": "Target A New Day Women's Blouse",
@@ -253,7 +253,7 @@
           "rating": 4,
           "category": "Clothing",
           "price": 24.99,
-          "image": "https://example.com/images/target-womens-blouse.jpg"
+          "image": "https://target.scene7.com/is/image/Target/GUEST_5e615722-da45-4faa-83d6-851416d89f3d?wid=488&hei=488&fmt=pjpeg"
         },
         {
           "name": "Target Goodfellow & Co Men's Jeans",
@@ -261,7 +261,7 @@
           "rating": 4,
           "category": "Clothing",
           "price": 29.99,
-          "image": "https://example.com/images/target-mens-jeans.jpg"
+          "image": "https://target.scene7.com/is/image/Target/GUEST_331cfd4c-e37c-456f-8192-132ce70640ae?wid=488&hei=488&fmt=pjpeg"
         }
       ]
     }

@@ -4,12 +4,34 @@
   box-sizing: border-box;
 }
 
+body {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
 #productSection {
   display: flex;
   flex-direction: column;
+  align-content: center;
+  align-items: center;
 }
 
 .filters {
   display: flex;
+  flex-direction: column;
+}
+
+.navbar {
+  display: flex;
   flex-direction: row;
+  width: 100vw;
+}
+
+#pagenav {
+  display: flex;
+  flex-direction: row;
+}
+#pagenav > * {
+  padding: 10px;
 }

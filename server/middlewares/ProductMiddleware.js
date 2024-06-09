@@ -5,10 +5,8 @@ const getProductsValidation = (req, res, next) => {
   try {
     const { page, brand, type } = req.query;
 
-    if (!page || !validator.isNumeric(page)) {
-      return res.status(400).json({ message: "invalid Page" });
-    }
-    req.body.page = page; // Convert page to integer
+    if (!page || !validator.isNumeric(page)) req.body.page = 1;
+    else req.body.page = page; // Convert page to integer
 
     // Handle brand and type as arrays or null
     req.body.brand = brand ? (Array.isArray(brand) ? brand : [brand]) : null;

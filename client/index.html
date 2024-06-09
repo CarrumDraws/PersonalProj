@@ -7,6 +7,7 @@
       href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css"
       rel="stylesheet"
     />
+    <link href="./styles.css" rel="stylesheet" />
     <title>Home</title>
   </head>
   <body>
@@ -14,92 +15,82 @@
 
     <div>
       <form class="filters">
-        <fieldset>
-          <legend>Brands</legend>
-          <label>
-            <input
-              class="brandCheckbox"
-              type="checkbox"
-              name="brand"
-              value="Samsung"
-            />
-            Samsung </label
-          ><br />
-          <label>
-            <input
-              class="brandCheckbox"
-              type="checkbox"
-              name="brand"
-              value="Sony"
-            />
-            Sony </label
-          ><br />
-          <label>
-            <input
-              class="brandCheckbox"
-              type="checkbox"
-              name="brand"
-              value="Apple"
-            />
-            Apple </label
-          ><br />
-          <label>
-            <input
-              class="brandCheckbox"
-              type="checkbox"
-              name="brand"
-              value="IKEA"
-            />
-            IKEA </label
-          ><br />
-          <label>
-            <input
-              class="brandCheckbox"
-              type="checkbox"
-              name="brand"
-              value="Target"
-            />
-            Target
-          </label>
-        </fieldset>
+        <div>
+          Brands:
+          <input
+            class="brandCheckbox"
+            type="checkbox"
+            name="brand"
+            value="Samsung"
+          />
+          <label> Samsung </label>
+          <input
+            class="brandCheckbox"
+            type="checkbox"
+            name="brand"
+            value="Sony"
+          />
+          <label> Sony </label>
+          <input
+            class="brandCheckbox"
+            type="checkbox"
+            name="brand"
+            value="Apple"
+          />
+          <label> Apple </label>
+          <input
+            class="brandCheckbox"
+            type="checkbox"
+            name="brand"
+            value="IKEA"
+          />
+          <label> IKEA </label>
+          <input
+            class="brandCheckbox"
+            type="checkbox"
+            name="brand"
+            value="Target"
+          />
+          <label> Target </label>
+        </div>
 
-        <fieldset>
-          <legend>Categories</legend>
-          <label>
-            <input
-              class="typeCheckbox"
-              type="checkbox"
-              name="category"
-              value="Clothing"
-            />
-            Clothing </label
-          ><br />
-          <label>
-            <input
-              class="typeCheckbox"
-              type="checkbox"
-              name="category"
-              value="Home"
-            />
-            Home </label
-          ><br />
-          <label>
-            <input
-              class="typeCheckbox"
-              type="checkbox"
-              name="category"
-              value="Electronics"
-            />
-            Electronics
-          </label>
-        </fieldset>
+        <div>
+          Categories:
 
-        <br />
-        <input type="submit" value="Submit" />
+          <input
+            class="typeCheckbox"
+            type="checkbox"
+            name="category"
+            value="Clothing"
+          />
+          <label> Clothing </label>
+          <input
+            class="typeCheckbox"
+            type="checkbox"
+            name="category"
+            value="Home"
+          />
+          <label> Home </label>
+          <input
+            class="typeCheckbox"
+            type="checkbox"
+            name="category"
+            value="Electronics"
+          />
+          <label> Electronics </label>
+        </div>
+
+        <input type="submit" value="Filter" />
       </form>
     </div>
-    Home
+
     <div id="product-placeholder"></div>
+
+    <div id="pagenav">
+      <div id="prevPage"><</div>
+      <div id="currPage"></div>
+      <div id="nextPage">></div>
+    </div>
   </body>
   <script src="script.js"></script>
 </html>

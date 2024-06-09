@@ -4,7 +4,7 @@
   "description": "",
   "main": "main.js",
   "scripts": {
-    "start": "env-cmd node --watch index",
+    "start": "env-cmd nodemon index",
     "seed": "env-cmd node config/seed"
   },
   "dependencies": {
@@ -15,6 +15,7 @@
     "jsonwebtoken": "^9.0.2",
     "mongoose": "^8.4.1",
     "morgan": "^1.10.0",
+    "nodemon": "^3.1.3",
     "validator": "^13.12.0"
   },
   "author": "",
