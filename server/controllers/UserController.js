@@ -153,4 +153,40 @@ const setFavorites = async (req, res) => {
   }
 };
 
-module.exports = { signup, login, logout, getFavorites, setFavorites };
+const getUsers = async (req, res) => {
+  try {
+    // Get all users that AREN'T admins
+    const users = await User.find({ admin: false });
+    res.status(200).json(users);
+  } catch (error) {
+    res.status(500).json(error);
+  }
+};
+
+const getUserFavorites = async (req, res) => {
+  let { id } = req.params;
+
+  try {
+    // Get all users that AREN'T admins
+    const user = await User.findById(id).populate({
+      path: "favorites", // the field in User you want to populate
+      select: "-_id -__v", // Exclude '__v' and '-todos' from return
+    });
+
+    if (!user) return res.status(404).json({ message: "User not found" });
+
+    res.status(200).json(user.favorites);
+  } catch (error) {
+    res.status(500).json(error);
+  }
+};
+
+module.exports = {
+  signup,
+  login,
+  logout,
+  getFavorites,
+  setFavorites,
+  getUsers,
+  getUserFavorites,
+};

@@ -1,5 +1,6 @@
 const jwt = require("jsonwebtoken");
 const validator = require("validator");
+const User = require("../models/User.js");
 
 const jwtValidation = (req, res, next) => {
   try {
@@ -37,4 +38,22 @@ const jwtValidation = (req, res, next) => {
   }
 };
 
-module.exports = jwtValidation;
+const isAdmin = async (req, res, next) => {
+  try {
+    let { id } = req.body;
+    const user = await User.findOne({ _id: id });
+    if (!user || !user.admin) {
+      return res.status(403).json({
+        message: "Unauthorized: Not an Admin",
+      });
+    }
+    next();
+  } catch (error) {
+    console.error("isAdmin error:", error);
+    return res.status(500).json({
+      message: "isAdmin Failed",
+    });
+  }
+};
+
+module.exports = { jwtValidation, isAdmin };

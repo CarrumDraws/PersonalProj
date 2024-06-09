@@ -5,7 +5,7 @@ const {
   loginUserValidation,
   updateUserValidation,
 } = require("../middlewares/UserMiddleware.js");
-const jwtValidation = require("../middlewares/AuthMiddleware.js");
+const { jwtValidation, isAdmin } = require("../middlewares/AuthMiddleware.js");
 
 const userRouter = Router();
 
@@ -28,5 +28,9 @@ userRouter.put(
   jwtValidation,
   userController.setFavorites
 );
+
+// Admin routes
+userRouter.get("/", jwtValidation, isAdmin, userController.getUsers);
+userRouter.get("/:id", jwtValidation, isAdmin, userController.getUserFavorites);
 
 module.exports = userRouter;

@@ -58,22 +58,29 @@ const getProducts = async (req, res) => {
   }
 };
 
-// PUT /songs/:songid : user likes a song
+// GET /details/:productid
 // id in body
 const getProduct = async (req, res) => {
   try {
-    const { songid } = req.params;
+    const { productid } = req.params;
     const { id } = req.body;
+    let product = await Product.findById(productid);
+    if (!product) return res.status(404).json({ message: "Product not found" });
+    product = {
+      ...product.toObject(),
+      favorited: false,
+    };
 
-    const user = await User.findById(id);
-    if (!user) return res.status(404).json({ message: "User not found" });
-    const song = await Product.findById(songid);
-    if (!song) return res.status(404).json({ message: "Product not found" });
+    if (id) {
+      const user = await User.findById(id).lean().exec(); // Get User
+      if (user && user.favorites) {
+        if (user.favorites.some((favorite) => favorite.equals(productid))) {
+          product.favorited = true; // update the favorited field
+        }
+      }
+    }
 
-    user.likes.push(song);
-    await user.save();
-
-    res.status(200).json(song);
+    res.status(200).json(product);
   } catch (error) {
     res.status(500).json(error);
   }

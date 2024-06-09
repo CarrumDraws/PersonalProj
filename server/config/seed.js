@@ -1,4 +1,5 @@
 const db = require("./connection.js");
+const bcrypt = require("bcryptjs");
 const User = require("../models/User.js");
 const Product = require("../models/Product.js");
 const Brand = require("../models/Brand.js");
@@ -13,10 +14,13 @@ const data = require("./data.json"); // Adjust the path as needed
       Brand.deleteMany(),
     ]);
 
+    let password = "123456789";
+    password = await bcrypt.hash(password, Number(process.env.SALT));
+
     const user = new User({
       username: "Calum",
       email: "calumchansy@gmail.com",
-      password: "123456789",
+      password: password,
       admin: true,
     });
     await user.save();
