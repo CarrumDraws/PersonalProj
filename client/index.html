@@ -12,84 +12,89 @@
   </head>
   <body>
     <div id="navbar-placeholder"></div>
-
-    <div>
-      <form class="filters">
+    <div class="favoritesWrapper">
+      <div class="mainContent">
         <div>
-          Brands:
-          <input
-            class="brandCheckbox"
-            type="checkbox"
-            name="brand"
-            value="Samsung"
-          />
-          <label> Samsung </label>
-          <input
-            class="brandCheckbox"
-            type="checkbox"
-            name="brand"
-            value="Sony"
-          />
-          <label> Sony </label>
-          <input
-            class="brandCheckbox"
-            type="checkbox"
-            name="brand"
-            value="Apple"
-          />
-          <label> Apple </label>
-          <input
-            class="brandCheckbox"
-            type="checkbox"
-            name="brand"
-            value="IKEA"
-          />
-          <label> IKEA </label>
-          <input
-            class="brandCheckbox"
-            type="checkbox"
-            name="brand"
-            value="Target"
-          />
-          <label> Target </label>
+          <form class="filters">
+            <div>
+              Brands:
+              <input
+                class="brandCheckbox"
+                type="checkbox"
+                name="brand"
+                value="Samsung"
+              />
+              <label> Samsung </label>
+              <input
+                class="brandCheckbox"
+                type="checkbox"
+                name="brand"
+                value="Sony"
+              />
+              <label> Sony </label>
+              <input
+                class="brandCheckbox"
+                type="checkbox"
+                name="brand"
+                value="Apple"
+              />
+              <label> Apple </label>
+              <input
+                class="brandCheckbox"
+                type="checkbox"
+                name="brand"
+                value="IKEA"
+              />
+              <label> IKEA </label>
+              <input
+                class="brandCheckbox"
+                type="checkbox"
+                name="brand"
+                value="Target"
+              />
+              <label> Target </label>
+            </div>
+
+            <div>
+              Categories:
+
+              <input
+                class="typeCheckbox"
+                type="checkbox"
+                name="category"
+                value="Clothing"
+              />
+              <label> Clothing </label>
+              <input
+                class="typeCheckbox"
+                type="checkbox"
+                name="category"
+                value="Home"
+              />
+              <label> Home </label>
+              <input
+                class="typeCheckbox"
+                type="checkbox"
+                name="category"
+                value="Electronics"
+              />
+              <label> Electronics </label>
+            </div>
+
+            <input type="submit" value="Filter" />
+          </form>
         </div>
 
-        <div>
-          Categories:
+        <div id="product-placeholder"></div>
 
-          <input
-            class="typeCheckbox"
-            type="checkbox"
-            name="category"
-            value="Clothing"
-          />
-          <label> Clothing </label>
-          <input
-            class="typeCheckbox"
-            type="checkbox"
-            name="category"
-            value="Home"
-          />
-          <label> Home </label>
-          <input
-            class="typeCheckbox"
-            type="checkbox"
-            name="category"
-            value="Electronics"
-          />
-          <label> Electronics </label>
+        <div id="pagenav">
+          <div id="prevPage"><</div>
+          <div id="currPage"></div>
+          <div id="nextPage">></div>
         </div>
+      </div>
 
-        <input type="submit" value="Filter" />
-      </form>
-    </div>
-
-    <div id="product-placeholder"></div>
-
-    <div id="pagenav">
-      <div id="prevPage"><</div>
-      <div id="currPage"></div>
-      <div id="nextPage">></div>
+      <div id="favorites-placeholder"></div>
     </div>
   </body>
   <script src="script.js"></script>

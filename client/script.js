@@ -16,6 +16,24 @@
   }
 })();
 
+// Load the Favorites Panel
+(async function getFavoritesPanel() {
+  try {
+    const response = await fetch("favorites/index.html");
+    if (!response.ok) throw new Error(`HTTP error! status: ${response.status}`);
+    const data = await response.text();
+    const navbarPlaceholder = document.getElementById("favorites-placeholder");
+    navbarPlaceholder.innerHTML = data;
+
+    // Once favorites is loaded, load favorites script
+    const script = document.createElement("script");
+    script.src = "favorites/script.js";
+    document.body.appendChild(script);
+  } catch (err) {
+    console.error("Failed to load favorites:", err);
+  }
+})();
+
 // Configure pagenav
 (async function configureNav() {
   try {
@@ -134,8 +152,9 @@ function createTile(product) {
   });
 
   const img = document.createElement("img");
-  img.style.width = "300px";
-  img.style.height = "200px";
+  img.style.width = "100%";
+  img.style.height = "auto";
+  img.style.aspectRatio = "1 / 1";
   img.src = product.image;
   img.alt = product.name;
   tile.appendChild(img);

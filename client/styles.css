@@ -43,3 +43,18 @@ body {
 #pagenav > * {
   padding: 10px;
 }
+.favoritesWrapper {
+  width: 100%;
+  display: flex;
+  flex-direction: row;
+}
+.mainContent {
+  width: 75%;
+}
+#favorites-placeholder {
+  width: 25%;
+  background-color: lightgray;
+
+  display: flex;
+  flex-direction: column;
+}
