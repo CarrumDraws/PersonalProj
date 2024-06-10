@@ -1,7 +1,9 @@
 .navbar {
+  width: 100vw;
+  height: 3rem;
+
   display: flex;
   flex-direction: row;
-  width: 100vw;
 }
 
 .navlinks {

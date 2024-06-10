@@ -1,9 +1,9 @@
-export async function loadFavorites(id) {
+export async function loadFavorites() {
   try {
     const response = await fetch("/client/admin/favorites/index.html");
     if (!response.ok) throw new Error(`HTTP error! status: ${response.status}`);
     const data = await response.text();
-    const navbarPlaceholder = document.getElementById(id);
+    const navbarPlaceholder = document.getElementById("favorites-placeholder");
     navbarPlaceholder.innerHTML = data;
 
     // Load the CSS for the favorites panel

@@ -1,8 +1,9 @@
-import { loadNavbar } from "../navbar/utils/loadNavbar.js";
-import { loadFavorites } from "./favorites/utils/loadFavorites.js";
-import { adminRoute } from "../utils/adminRoute.js";
-
+import { loadNavbar } from "/client/navbar/utils/loadNavbar.js";
+import { loadFavorites } from "/client/admin/favorites/utils/loadFavorites.js";
+import { adminRoute } from "/client/utils/adminRoute.js";
+import { validPage } from "/client/utils/validPage.js";
 document.addEventListener("DOMContentLoaded", () => {
+  validPage();
   adminRoute();
   loadNavbar(); // Load the navbar
   loadFavorites(); // Load the Favorites Panel

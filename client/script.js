@@ -1,11 +1,13 @@
 import { loadNavbar } from "/client/navbar/utils/loadNavbar.js";
 import { loadFavorites } from "/client/favorites/utils/loadFavorites.js";
 import { nonAdminRoute } from "/client/utils/nonAdminRoute.js";
+import { validPage } from "/client/utils/validPage.js";
 
 document.addEventListener("DOMContentLoaded", () => {
   nonAdminRoute();
   loadNavbar(); // Load the navbar
   loadFavorites(); // Load the Favorites Panel
+  validPage();
 });
 
 // Configure Form + Pagenav
@@ -113,11 +115,11 @@ document.addEventListener("DOMContentLoaded", () => {
 
 function displayData(products) {
   let productSection = document.getElementById("product-placeholder");
-  // products is an array of brand, category, description, favorited, image, name, price, rating, _id.
 
   let flexRow = document.createElement("div");
   flexRow.style.display = "flex";
   flexRow.style.flexDirection = "row";
+  flexRow.style.height = "33%";
 
   for (let i = 0; i < products.length; i++) {
     flexRow.append(createTile(products[i]));
@@ -127,82 +129,42 @@ function displayData(products) {
       flexRow = document.createElement("div");
       flexRow.style.display = "flex";
       flexRow.style.flexDirection = "row";
+      flexRow.style.height = "33%";
     }
   }
   if (flexRow.hasChildNodes()) productSection.append(flexRow);
 }
 
-// product is an object of brand, category, description, favorited, image, name, price, rating, _id.
 function createTile(product) {
   const tile = document.createElement("div");
-  tile.style.display = "flex";
-  tile.style.flexDirection = "column";
-  tile.style.alignItems = "center";
-  tile.style.textAlign = "center";
-  tile.style.width = "33%";
-
+  tile.classList.add("tile");
   tile.addEventListener("click", () => {
     window.location.href = `products/index.html?productid=${product._id}`;
   });
 
-  const img = document.createElement("img");
-  img.style.width = "100%";
-  img.style.height = "auto";
-  img.style.aspectRatio = "1 / 1";
-  img.src = product.image;
-  img.alt = product.name;
+  const img = document.createElement("div");
+  img.classList.add("image-container");
+  img.style.backgroundImage = `url(${product.image})`;
+
   tile.appendChild(img);
 
-  const name = document.createElement("h6");
+  const name = document.createElement("b");
+  name.style.margin = "0";
   name.textContent = product.name;
   tile.appendChild(name);
-
-  const category = document.createElement("div");
-  category.textContent = product.category + ` | ${product.brand}`;
-  tile.appendChild(category);
 
   const rating = document.createElement("div");
   rating.textContent = `${product.rating} / 5 Stars`;
   tile.appendChild(rating);
 
-  const price = document.createElement("div");
+  const price = document.createElement("h5");
+  price.style.margin = "0";
   price.textContent = `$${product.price.toFixed(2)}`;
   tile.appendChild(price);
 
-  const favorite = document.createElement("button");
-  favorite.textContent = product.favorited
-    ? "Remove from Favorites"
-    : `Add to Favorites`;
-  tile.appendChild(favorite);
-
-  favorite.addEventListener("click", (e) => {
-    e.stopPropagation();
-    toggleFavorite(product._id);
-  });
+  const category = document.createElement("small");
+  category.textContent = product.category + ` | ${product.brand}`;
+  tile.appendChild(category);
 
   return tile;
-}
-
-async function toggleFavorite(productId) {
-  try {
-    let token = localStorage.getItem("token");
-    const headers = {
-      "Content-Type": "application/json",
-    };
-    if (token) headers.Authorization = `Bearer ${token}`;
-
-    const response = await fetch(
-      `http://localhost:3000/user/favorite/${productId}`,
-      {
-        method: "PUT",
-        headers: headers,
-      }
-    );
-
-    if (!response.ok) throw new Error("Failed to toggle favorite");
-
-    window.location.reload(); // Reload page
-  } catch (error) {
-    console.error("Error toggling favorite:", error);
-  }
 }

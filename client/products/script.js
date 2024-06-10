@@ -2,13 +2,19 @@ import { loadNavbar } from "/client/navbar/utils/loadNavbar.js";
 import { loadFavorites } from "/client/favorites/utils/loadFavorites.js";
 import { nonAdminRoute } from "/client/utils/nonAdminRoute.js";
 
+import { validPage } from "/client/utils/validPage.js";
 import { toggleFavorite } from "/client/favorites/utils/toggleFavorite.js";
 
 document.addEventListener("DOMContentLoaded", () => {
   nonAdminRoute();
-  loadNavbar(); // Load the navbar
-  loadFavorites(); // Load the Favorites Panel
+  loadNavbar();
+  loadFavorites();
+  validPage();
 });
+
+function loggedIn() {
+  return !!(localStorage.getItem("token") && localStorage.getItem("user"));
+}
 
 // getProductData
 (async function getProductData() {
@@ -37,6 +43,13 @@ document.addEventListener("DOMContentLoaded", () => {
     displayProductData(product);
     getRelated(product.brand);
   } catch (error) {
+    // Clear page
+    const main = document.getElementById("mainContent");
+    main.innerHTML = "";
+    let h1 = document.createElement("h1");
+    h1.innerHTML = "400 Error: Item Not Found";
+    main.append(h1);
+
     console.error("Error:", error);
   }
 })();
@@ -59,14 +72,16 @@ function displayProductData(product) {
   price.innerHTML = `$${product.price.toFixed(2)}`;
 
   const favorite = document.getElementById("favorite");
-  favorite.innerHTML = product.favorited
-    ? "Remove from Favorites"
-    : `Add to Favorites`;
+  if (loggedIn()) {
+    favorite.innerHTML = product.favorited
+      ? "Remove from Favorites"
+      : `Add to Favorites`;
 
-  favorite.addEventListener("click", (e) => {
-    e.stopPropagation();
-    toggleFavorite(product._id);
-  });
+    favorite.addEventListener("click", (e) => {
+      e.stopPropagation();
+      toggleFavorite(product._id);
+    });
+  } else favorite.remove();
 }
 
 async function getRelated(brand) {

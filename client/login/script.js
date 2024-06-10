@@ -1,8 +1,9 @@
 import { loadNavbar } from "/client/navbar/utils/loadNavbar.js";
-
+import { validPage } from "/client/utils/validPage.js";
 import { guestRoute } from "/client/utils/guestRoute.js";
 
 document.addEventListener("DOMContentLoaded", () => {
+  validPage();
   guestRoute();
   loadNavbar(); // Load the navbar
 });
@@ -28,7 +29,7 @@ let form = document.getElementsByTagName("form")[0];
 
 form.addEventListener("submit", async (e) => {
   e.preventDefault();
-
+  console.log("Submitting");
   let formData = new FormData(form);
   const data = {};
   formData.forEach((value, key) => {

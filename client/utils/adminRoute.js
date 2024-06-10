@@ -1,7 +1,8 @@
 export function adminRoute() {
   function isAdmin() {
     return !!(
-      localStorage.getItem("token") && localStorage.getItem("user")?.admin
+      localStorage.getItem("token") &&
+      JSON.parse(localStorage.getItem("user")).admin
     );
   }
   if (!isAdmin()) {
