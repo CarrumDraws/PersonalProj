@@ -1,0 +1,7 @@
+.hidden {
+  display: none;
+}
+
+#loginFormWrapper {
+  width: 500px;
+}

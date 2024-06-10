@@ -1,6 +1,7 @@
 const express = require("express");
 const cors = require("cors");
 const morgan = require("morgan");
+const path = require("path");
 
 const userRouter = require("./routers/UserRouter.js");
 const productRouter = require("./routers/ProductRouter.js");
@@ -19,12 +20,19 @@ app.use(
 app.use(express.urlencoded({ extended: true }));
 app.use(morgan("dev"));
 
-app.use("/user", userRouter);
-app.use("/products", productRouter);
-// app.use("/artists", artistRouter);
+app.use(express.static("client"));
 
-app.all("*", (_req, res) => {
+app.use("/api/user", userRouter);
+app.use("/api/products", productRouter);
+
+// API
+app.all("/api/*", (_req, res) => {
   return res.status(404).json({ message: "Not Found" });
+});
+
+// Frontend
+app.get("*", (req, res) => {
+  res.sendFile(path.join(__dirname, "client", "notfound", "index.html"));
 });
 
 module.exports = app;

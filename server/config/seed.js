@@ -8,6 +8,7 @@ const data = require("./data.json"); // Adjust the path as needed
 
 (async () => {
   try {
+    S;
     await Promise.all([
       User.deleteMany(),
       Product.deleteMany(),

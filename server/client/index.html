@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link
+      href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css"
+      rel="stylesheet"
+    />
+    <link href="styles.css" rel="stylesheet" />
+
+    <title>Home</title>
+  </head>
+  <body>
+    <div id="navbar-placeholder"></div>
+    <div class="favoritesWrapper">
+      <div class="mainContent">
+        <form class="filters">
+          <div class="form-group">
+            <div class="row">
+              <div class="col-auto">
+                <label style="font-weight: bold">Brands:</label>
+              </div>
+              <div class="col-auto">
+                <input
+                  class="brandCheckbox"
+                  type="checkbox"
+                  name="brand"
+                  value="Samsung"
+                  id="brandSamsung"
+                />
+                <label for="brandSamsung">Samsung</label>
+              </div>
+              <div class="col-auto">
+                <input
+                  class="brandCheckbox"
+                  type="checkbox"
+                  name="brand"
+                  value="Sony"
+                  id="brandSony"
+                />
+                <label for="brandSony">Sony</label>
+              </div>
+              <div class="col-auto">
+                <input
+                  class="brandCheckbox"
+                  type="checkbox"
+                  name="brand"
+                  value="Apple"
+                  id="brandApple"
+                />
+                <label for="brandApple">Apple</label>
+              </div>
+              <div class="col-auto">
+                <input
+                  class="brandCheckbox"
+                  type="checkbox"
+                  name="brand"
+                  value="IKEA"
+                  id="brandIKEA"
+                />
+                <label for="brandIKEA">IKEA</label>
+              </div>
+              <div class="col-auto">
+                <input
+                  class="brandCheckbox"
+                  type="checkbox"
+                  name="brand"
+                  value="Target"
+                  id="brandTarget"
+                />
+                <label for="brandTarget">Target</label>
+              </div>
+            </div>
+          </div>
+
+          <div class="form-group">
+            <div class="row">
+              <div class="col-auto">
+                <label style="font-weight: bold">Categories:</label>
+              </div>
+              <div class="col-auto">
+                <input
+                  class="typeCheckbox"
+                  type="checkbox"
+                  name="category"
+                  value="Clothing"
+                  id="categoryClothing"
+                />
+                <label for="categoryClothing">Clothing</label>
+              </div>
+              <div class="col-auto">
+                <input
+                  class="typeCheckbox"
+                  type="checkbox"
+                  name="category"
+                  value="Home"
+                  id="categoryHome"
+                />
+                <label for="categoryHome">Home</label>
+              </div>
+              <div class="col-auto">
+                <input
+                  class="typeCheckbox"
+                  type="checkbox"
+                  name="category"
+                  value="Electronics"
+                  id="categoryElectronics"
+                />
+                <label for="categoryElectronics">Electronics</label>
+              </div>
+            </div>
+          </div>
+
+          <input type="submit" value="Filter" class="btn btn-primary" />
+        </form>
+
+        <div id="product-placeholder"></div>
+
+        <div id="pagenav">
+          <h4 id="prevPage"><</h4>
+          <h4 id="currPage"></h4>
+          <h4 id="nextPage">></h4>
+        </div>
+      </div>
+      <div id="favorites-placeholder"></div>
+    </div>
+  </body>
+  <script type="module" src="script.js"></script>
+</html>

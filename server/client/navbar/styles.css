@@ -1,0 +1,18 @@
+.navbar {
+  width: 100vw;
+  height: 3rem;
+  background-color: black;
+  display: flex;
+  flex-direction: row;
+}
+
+.navbar a {
+}
+
+.navlinks {
+  display: flex;
+  flex-direction: row;
+}
+.navlinks > * {
+  padding-left: 10px;
+}

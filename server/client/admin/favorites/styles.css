@@ -1,0 +1,26 @@
+#favoritesPanel {
+  outline: lightgray solid 1px;
+  padding: 1rem;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+}
+
+.favoritesTile {
+  background-color: rgb(238, 243, 255);
+  border-radius: 1rem;
+  margin-bottom: 1rem;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  text-align: center;
+}
+
+.favorites-image-container {
+  height: 100%;
+  aspect-ratio: 1 / 1;
+  border-radius: 1rem;
+  background-size: 125%;
+  background-position: center; /* Centers the image */
+  overflow: hidden;
+}
