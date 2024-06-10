@@ -37,6 +37,10 @@ document.addEventListener("DOMContentLoaded", () => {
 
 function createTile(user) {
   const tile = document.createElement("div");
+  tile.style.padding = "1rem";
+  tile.style.margin = "1rem";
+  tile.style.backgroundColor = "rgb(238, 243, 255)";
+  tile.style.borderRadius = "1rem";
   tile.style.display = "flex";
   tile.style.flexDirection = "column";
 
@@ -48,7 +52,8 @@ function createTile(user) {
     window.location.href = currentUrl.toString();
   });
 
-  const username = document.createElement("h1");
+  const username = document.createElement("h3");
+  username.style.margin = "0";
   username.innerHTML = user.username;
   tile.appendChild(username);
 

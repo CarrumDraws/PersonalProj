@@ -35,30 +35,29 @@ function displayFavorites(products) {
 
 function createFavoritesTile(product) {
   const tile = document.createElement("div");
-  tile.style.display = "flex";
-  tile.style.flexDirection = "row";
-  tile.style.alignItems = "center";
-  tile.style.textAlign = "center";
+  tile.classList.add("favoritesTile");
 
   tile.addEventListener("click", () => {
     console.log(product._id);
   });
 
-  const img = document.createElement("img");
-  img.style.width = "30%";
-  img.style.height = "auto";
-  img.style.aspectRatio = "1 / 1";
-  img.src = product.image;
-  img.alt = product.name;
+  const img = document.createElement("div");
+  img.classList.add("favorites-image-container");
+  img.style.backgroundImage = `url(${product.image})`;
   tile.appendChild(img);
 
   const info = document.createElement("div");
+  info.style.padding = "0.25rem";
   info.style.display = "flex";
   info.style.flexDirection = "column";
   info.style.alignItems = "left";
   info.style.textAlign = "left";
 
-  const name = document.createElement("h6");
+  info.style.whiteSpace = "nowrap";
+  info.style.overflow = "hidden";
+  info.style.textOverflow = "ellipsis";
+
+  const name = document.createElement("b");
   name.textContent = product.name;
   name.style.margin = "0";
   info.appendChild(name);

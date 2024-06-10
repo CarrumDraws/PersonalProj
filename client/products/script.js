@@ -76,7 +76,8 @@ function displayProductData(product) {
     favorite.innerHTML = product.favorited
       ? "Remove from Favorites"
       : `Add to Favorites`;
-
+    favorite.classList.add("btn");
+    favorite.classList.add(product.favorited ? "btn-secondary" : "btn-primary");
     favorite.addEventListener("click", (e) => {
       e.stopPropagation();
       toggleFavorite(product._id);
@@ -125,7 +126,7 @@ function relatedTile(product) {
   tile.style.textAlign = "center";
 
   tile.addEventListener("click", () => {
-    console.log(product._id);
+    window.location.href = `/client/products/index.html?productid=${product._id}`;
   });
 
   const img = document.createElement("img");

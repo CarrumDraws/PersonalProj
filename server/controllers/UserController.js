@@ -112,7 +112,7 @@ const getFavorites = async (req, res) => {
 
     const user = await User.findById(id).populate({
       path: "favorites", // the field in User you want to populate
-      select: "-_id -__v", // Exclude '__v' and '-todos' from return
+      select: "-__v", // Exclude '__v' and '-todos' from return
     });
 
     if (!user) return res.status(404).json({ message: "User not found" });

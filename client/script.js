@@ -145,7 +145,6 @@ function createTile(product) {
   const img = document.createElement("div");
   img.classList.add("image-container");
   img.style.backgroundImage = `url(${product.image})`;
-
   tile.appendChild(img);
 
   const name = document.createElement("b");

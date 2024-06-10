@@ -3,8 +3,10 @@ export async function loadFavorites() {
     const response = await fetch("/client/favorites/index.html");
     if (!response.ok) throw new Error(`HTTP error! status: ${response.status}`);
     const data = await response.text();
-    const navbarPlaceholder = document.getElementById("favorites-placeholder");
-    navbarPlaceholder.innerHTML = data;
+    const favoritesPlaceholder = document.getElementById(
+      "favorites-placeholder"
+    );
+    favoritesPlaceholder.innerHTML = data;
 
     // Load the CSS for the favorites panel
     const css = document.createElement("link");
@@ -21,6 +23,7 @@ export async function loadFavorites() {
 
     // Once favorites is loaded, load favorites script
     const script = document.createElement("script");
+    script.type = "module";
     script.src = "/client/favorites/script.js";
     document.body.appendChild(script);
   } catch (err) {

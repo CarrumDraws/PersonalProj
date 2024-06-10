@@ -7,10 +7,17 @@ export function validPage() {
     "/client/login/index.html",
     "/client/admin/index.html",
   ];
-  const currentPage = window.location.pathname;
+  // Normalize the current page path
+  const currentPage = window.location.pathname
+    .replace(/\/+$/, "")
+    .toLowerCase();
+  const isValidPage = validPages.some(
+    (page) => page.toLowerCase() === currentPage
+  );
   console.log(currentPage);
-  if (!validPages.includes(currentPage)) {
-    console.log("invalid page");
-    // window.location.href = "/client/notfound/index.html";
+
+  if (!isValidPage) {
+    console.log("Invalid page: redirecting to 404");
+    window.location.replace("/client/notfound/index.html");
   }
 }

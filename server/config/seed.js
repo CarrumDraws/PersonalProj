@@ -14,7 +14,7 @@ const data = require("./data.json"); // Adjust the path as needed
       Brand.deleteMany(),
     ]);
 
-    let password = "123456789";
+    let password = "Abc1@2";
     password = await bcrypt.hash(password, Number(process.env.SALT));
 
     const user = new User({
