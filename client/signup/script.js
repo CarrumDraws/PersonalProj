@@ -1,25 +1,11 @@
-(async function getNavbar() {
-  try {
-    const response = await fetch("../navbar/index.html");
-    if (!response.ok) throw new Error(`HTTP error! status: ${response.status}`);
-    const data = await response.text();
-    const navbarPlaceholder = document.getElementById("navbar-placeholder");
-    navbarPlaceholder.innerHTML = data;
+import { loadNavbar } from "/client/navbar/utils/loadNavbar.js";
 
-    // Load the CSS for the navbar panel
-    const css = document.createElement("link");
-    css.rel = "stylesheet";
-    css.href = "../navbar/styles.css";
-    document.head.appendChild(css);
+import { guestRoute } from "/client/utils/guestRoute.js";
 
-    // Once navbar is loaded, load navbar script
-    const script = document.createElement("script");
-    script.src = "../navbar/script.js";
-    document.body.appendChild(script);
-  } catch (err) {
-    console.error("Failed to load the navbar:", err);
-  }
-})();
+document.addEventListener("DOMContentLoaded", () => {
+  guestRoute();
+  loadNavbar(); // Load the navbar
+});
 
 let form = document.getElementsByTagName("form")[0];
 
@@ -31,12 +17,13 @@ form.addEventListener("submit", async function (event) {
   formData.forEach((value, key) => {
     data[key] = value;
   });
-  console.log(data);
+
   if (data.password !== data.passwordCheck)
     document.getElementById("error-message").textContent =
       "Passwords do not match";
   else {
     document.getElementById("error-message").textContent = "";
+
     try {
       const response = await fetch("http://localhost:3000/user/signup", {
         method: "POST",
@@ -46,13 +33,9 @@ form.addEventListener("submit", async function (event) {
         body: JSON.stringify(data),
       });
 
-      if (!response.ok) {
-        console.log(response);
-        throw new Error(response.message);
-      }
+      if (!response.ok) throw new Error(response.message);
 
       const responseData = await response.json();
-      console.log("Success:", responseData);
       localStorage.setItem("token", responseData.token);
       localStorage.setItem("user", JSON.stringify(responseData.user));
       window.location.href = "../index.html";

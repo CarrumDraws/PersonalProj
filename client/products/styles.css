@@ -14,6 +14,30 @@
   justify-content: space-evenly;
 }
 
+#product {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  text-align: center;
+}
+
+#productimg {
+  width: 30%;
+  height: auto;
+  aspect-ratio: 1/1;
+}
+
+#productinfo {
+  display: flex;
+  flex-direction: column;
+  align-items: left;
+  text-align: left;
+}
+
+#name {
+  margin: 0;
+}
+
 #related {
   width: 100%;
   display: flex;

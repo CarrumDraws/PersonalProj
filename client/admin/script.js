@@ -1,57 +1,12 @@
-// Load the navbar
-(async function getNavbar() {
-  try {
-    const response = await fetch("../navbar/index.html");
-    if (!response.ok) throw new Error(`HTTP error! status: ${response.status}`);
-    const data = await response.text();
-    const navbarPlaceholder = document.getElementById("navbar-placeholder");
-    navbarPlaceholder.innerHTML = data;
+import { loadNavbar } from "../navbar/utils/loadNavbar.js";
+import { loadFavorites } from "./favorites/utils/loadFavorites.js";
+import { adminRoute } from "../utils/adminRoute.js";
 
-    // Load the CSS for the navbar panel
-    const css = document.createElement("link");
-    css.rel = "stylesheet";
-    css.href = "../navbar/styles.css";
-    document.head.appendChild(css);
-
-    // Once navbar is loaded, load navbar script
-    const script = document.createElement("script");
-    script.src = "../navbar/script.js";
-    document.body.appendChild(script);
-  } catch (err) {
-    console.error("Failed to load the navbar:", err);
-  }
-})();
-
-// Load the Favorites Panel
-(async function getFavoritesPanel() {
-  try {
-    const response = await fetch("favorites/index.html");
-    if (!response.ok) throw new Error(`HTTP error! status: ${response.status}`);
-    const data = await response.text();
-    const navbarPlaceholder = document.getElementById("favorites-placeholder");
-    navbarPlaceholder.innerHTML = data;
-
-    // Load the CSS for the favorites panel
-    const css = document.createElement("link");
-    css.rel = "stylesheet";
-    css.href = "favorites/styles.css";
-    document.head.appendChild(css);
-
-    // Load the Bootstrap for the favorites panel
-    const bs = document.createElement("link");
-    bs.rel = "stylesheet";
-    bs.href =
-      "https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css";
-    document.head.appendChild(bs);
-
-    // Once favorites is loaded, load favorites script
-    const script = document.createElement("script");
-    script.src = "favorites/script.js";
-    document.body.appendChild(script);
-  } catch (err) {
-    console.error("Failed to load favorites:", err);
-  }
-})();
+document.addEventListener("DOMContentLoaded", () => {
+  adminRoute();
+  loadNavbar(); // Load the navbar
+  loadFavorites(); // Load the Favorites Panel
+});
 
 // getUserData
 (async function getUserData() {
@@ -70,33 +25,15 @@
     if (!response.ok) throw new Error("Network response was not ok");
 
     const users = await response.json();
-    console.log("Success:", users);
-    displayData(users);
+    let usersSection = document.getElementById("user-placeholder");
+    for (let i = 0; i < users.length; i++) {
+      usersSection.append(createTile(users[i]));
+    }
   } catch (error) {
     console.error("Error:", error);
   }
 })();
 
-function displayData(users) {
-  let usersSection = document.getElementById("user-placeholder");
-  // users is an array of brand, favorites, description, favorited, image, name, price, rating, _id.
-
-  for (let i = 0; i < users.length; i++) {
-    usersSection.append(createTile(users[i]));
-  }
-}
-
-// user is
-// admin: false,
-// favorites: "mochadog@gmail.com",
-// favorites: [
-//   "66661449a8ee415df6c290b3",
-//   "66661449a8ee415df6c290b4"
-// ],
-// password: "$2a$10$shmhSQWuj2lGaaef/vYC.eynye7rT27SwfEa8vYhW7UCFEvARbR2S",
-// username: "Mocha",
-// __v: 6,
-// _id: "6666159a54fb1008b861d8fa"
 function createTile(user) {
   const tile = document.createElement("div");
   tile.style.display = "flex";
