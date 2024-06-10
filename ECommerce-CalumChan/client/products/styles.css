@@ -32,6 +32,7 @@
 
 #productinfo {
   padding: 2rem;
+  max-width: 500px;
   display: flex;
   flex-direction: column;
   align-items: left;

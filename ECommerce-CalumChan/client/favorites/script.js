@@ -31,8 +31,21 @@ function displayFavorites(products) {
   }
 }
 
+export function updateFavoritePanel(product) {
+  // Iterate through favorites in favoritesPanel
+  let favoritesPanel = document.getElementById("favoritesPanel");
+  for (let child of favoritesPanel.children) {
+    if (child.id === product._id) {
+      child.remove(); // If product exists, delete it
+      return;
+    }
+  }
+  favoritesPanel.append(createFavoritesTile(product)); // else, append it on the end
+}
+
 function createFavoritesTile(product) {
   const tile = document.createElement("div");
+  tile.id = product._id;
   tile.classList.add("favoritesTile");
 
   const img = document.createElement("div");
@@ -67,7 +80,7 @@ function createFavoritesTile(product) {
   info.appendChild(remove);
 
   remove.addEventListener("click", () => {
-    toggleFavorite(product._id);
+    toggleFavorite(product);
   });
 
   tile.appendChild(info);

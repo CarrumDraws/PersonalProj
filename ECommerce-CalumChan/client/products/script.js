@@ -2,6 +2,7 @@ import { loadNavbar } from "/navbar/utils/loadNavbar.js";
 import { loadFavorites } from "/favorites/utils/loadFavorites.js";
 import { nonAdminRoute } from "/utils/nonAdminRoute.js";
 
+import { updateFavoritePanel } from "../favorites/script.js";
 import { toggleFavorite } from "/favorites/utils/toggleFavorite.js";
 
 document.addEventListener("DOMContentLoaded", () => {
@@ -67,7 +68,11 @@ function displayProductData(product) {
   meta.innerHTML = `${product.brand}  /  ` + product.category;
 
   const price = document.getElementById("price");
-  price.innerHTML = `$${product.price.toFixed(2)}`;
+  price.innerHTML = `${product.price.toFixed(2)}`;
+
+  const description = document.getElementById("description");
+  description.style.marginBottom = "1rem";
+  description.innerHTML = product.description;
 
   const favorite = document.getElementById("favorite");
   if (loggedIn()) {
@@ -78,7 +83,7 @@ function displayProductData(product) {
     favorite.classList.add(product.favorited ? "btn-secondary" : "btn-primary");
     favorite.addEventListener("click", (e) => {
       e.stopPropagation();
-      toggleFavorite(product._id);
+      toggleFavorite(product);
     });
   } else favorite.remove();
 }

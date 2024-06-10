@@ -1,4 +1,7 @@
-export async function toggleFavorite(productId) {
+import { updateFavoritePanel } from "../script.js";
+import { updateButton } from "../../products/utils/updateButton.js";
+
+export async function toggleFavorite(product) {
   try {
     let token = localStorage.getItem("token");
     const headers = {
@@ -7,7 +10,7 @@ export async function toggleFavorite(productId) {
     if (token) headers.Authorization = `Bearer ${token}`;
 
     const response = await fetch(
-      `http://localhost:3000/api/user/favorite/${productId}`,
+      `http://localhost:3000/api/user/favorite/${product._id}`,
       {
         method: "PUT",
         headers: headers,
@@ -16,7 +19,8 @@ export async function toggleFavorite(productId) {
 
     if (!response.ok) throw new Error("Failed to toggle favorite");
 
-    window.location.reload(); // Reload page
+    updateFavoritePanel(product);
+    updateButton(product._id);
   } catch (error) {
     console.error("Error toggling favorite:", error);
   }

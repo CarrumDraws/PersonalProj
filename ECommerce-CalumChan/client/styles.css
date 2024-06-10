@@ -25,6 +25,7 @@ body {
 /* Main Content */
 #product-placeholder {
   height: 80%;
+  aspect-ratio: 1/1;
   padding: 1rem;
 }
 .tile {
@@ -80,7 +81,9 @@ body {
   flex-direction: row;
 }
 .mainContent {
-  /* height:  */
+  display: flex;
+  flex-direction: column;
+  align-items: center;
   width: 75%;
 }
 #favorites-placeholder {
