@@ -3,7 +3,6 @@ const userController = require("../controllers/UserController.js");
 const {
   createUserValidation,
   loginUserValidation,
-  updateUserValidation,
 } = require("../middlewares/UserMiddleware.js");
 const { jwtValidation, isAdmin } = require("../middlewares/AuthMiddleware.js");
 
